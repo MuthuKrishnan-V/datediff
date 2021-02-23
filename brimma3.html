@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <br />
+    <h1>Date Difference Calculator</h1>
+    <center>
+      <input type="date" name="" id="Date1" />
+      <input type="date" name="" id="Date2" />
+      <input type="button" value="Find Difference" onclick="calculate()" /><br>
+      <textarea id="result" disabled></textarea>
+    </center>
+
+    <style>
+      h1 {
+        width: 50%;
+        padding: 10px;
+        font-size: 60px;
+        margin: 30px auto;
+      }
+      #Date1 {
+        background-color: transparent;
+      }
+      #Date2 {
+        background-color: transparent;
+      }
+      #result {
+        background-color: transparent;
+        margin:50px;
+        padding-top: 5px;
+        border: 3px solid black;
+        font-size: 20px;
+        text-align: center;
+      }
+      body {
+        background-image: url("https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        background-attachment: fixed;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+    <script>
+      const calculate = () => {
+        let date1 = new Date(document.getElementById("Date1").value);
+        let date2 = new Date(document.getElementById("Date2").value);
+
+        if (isNaN(date1) || isNaN(date2)) {
+          document.getElementById("result").innerHTML =
+            "Please Select Both the dates";
+        } else {
+          let noofdates = Math.abs((date2 - date1) / (1000 * 60 * 60 * 24));
+          document.getElementById("result").innerHTML = noofdates;
+        }
+      };
+    </script>
+  </body>
+</html>
